@@ -1,5 +1,5 @@
 --- D.tmLanguage.orig	2012-01-26 17:21:33.000000000 +0100
-+++ D.tmLanguage	2012-03-09 15:36:11.215887084 +0100
++++ D.tmLanguage	2012-03-11 01:45:24.944877311 +0100
 @@ -42,7 +42,7 @@
  		<dict>
  			<key>begin</key>
@@ -165,7 +165,96 @@
  			<key>name</key>
  			<string>storage.type.d</string>
  		</dict>
-@@ -845,7 +851,7 @@
+@@ -782,6 +788,88 @@
+ 				</dict>
+ 				<dict>
+ 					<key>begin</key>
++					<string>(q)(")</string>
++					<key>beginCaptures</key>
++					<dict>
++						<key>1</key>
++						<dict>
++							<key>name</key>
++							<string>storage.type.string.d</string>
++						</dict>
++						<key>2</key>
++						<dict>
++							<key>name</key>
++							<string>punctuation.definition.string.begin.d</string>
++						</dict>
++					</dict>
++					<key>end</key>
++					<string>((?&lt;=")(")|")</string>
++					<key>endCaptures</key>
++					<dict>
++						<key>1</key>
++						<dict>
++							<key>name</key>
++							<string>punctuation.definition.string.end.d</string>
++						</dict>
++						<key>2</key>
++						<dict>
++							<key>name</key>
++							<string>meta.empty-string.double.d</string>
++						</dict>
++					</dict>
++					<key>name</key>
++					<string>string.quoted.double.raw.d</string>
++					<key>patterns</key>
++					<array>
++						<dict>
++							<key>include</key>
++							<string>#regular_expressions</string>
++						</dict>
++					</array>
++				</dict>	
++				<dict>
++					<key>begin</key>
++					<string>(q)({)</string>
++					<key>beginCaptures</key>
++					<dict>
++						<key>1</key>
++						<dict>
++							<key>name</key>
++							<string>storage.type.string.d</string>
++						</dict>
++						<key>2</key>
++						<dict>
++							<key>name</key>
++							<string>punctuation.definition.string.begin.d</string>
++						</dict>
++					</dict>
++					<key>end</key>
++					<string>((?&lt;=})(})|})</string>
++					<key>endCaptures</key>
++					<dict>
++						<key>1</key>
++						<dict>
++							<key>name</key>
++							<string>punctuation.definition.string.end.d</string>
++						</dict>
++						<key>2</key>
++						<dict>
++							<key>name</key>
++							<string>meta.empty-string.double.d</string>
++						</dict>
++					</dict>
++					<key>name</key>
++					<string>string.quoted.double.raw.d</string>
++					<key>patterns</key>
++					<array>
++						<dict>
++							<key>include</key>
++							<string>#regular_expressions</string>
++						</dict>
++					</array>
++				</dict>										
++				<dict>
++					<key>begin</key>
+ 					<string>`</string>
+ 					<key>beginCaptures</key>
+ 					<dict>
+@@ -845,7 +933,7 @@
  		<key>support-type-built-ins-classes-d</key>
  		<dict>
  			<key>match</key>
@@ -174,7 +263,7 @@
  			<key>name</key>
  			<string>support.type.built-ins.classes.d</string>
  		</dict>
-@@ -874,7 +880,7 @@
+@@ -874,7 +962,7 @@
  		<key>support-type-built-ins-exceptions-d</key>
  		<dict>
  			<key>match</key>
@@ -183,7 +272,7 @@
  			<key>name</key>
  			<string>support.type.built-ins.exceptions.d</string>
  		</dict>
-@@ -895,7 +901,7 @@
+@@ -895,7 +983,7 @@
  		<key>support-type-d</key>
  		<dict>
  			<key>match</key>
