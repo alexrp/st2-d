@@ -1,5 +1,5 @@
 --- D.tmLanguage.orig	2012-01-26 17:21:33.000000000 +0100
-+++ D.tmLanguage	2012-03-11 01:45:24.944877311 +0100
++++ D.tmLanguage	2012-03-14 21:19:42.775768166 +0100
 @@ -42,7 +42,7 @@
  		<dict>
  			<key>begin</key>
@@ -103,7 +103,7 @@
  			<key>name</key>
  			<string>keyword.control.statement.d</string>
  		</dict>
-@@ -445,7 +451,7 @@
+@@ -445,18 +451,12 @@
  		</dict>
  		<dict>
  			<key>match</key>
@@ -112,7 +112,18 @@
  			<key>name</key>
  			<string>constant.language.d</string>
  		</dict>
-@@ -483,37 +489,37 @@
+ 		<dict>
+ 			<key>match</key>
+-			<string>\b(this|super)\b</string>
+-			<key>name</key>
+-			<string>variable.language.d</string>
+-		</dict>
+-		<dict>
+-			<key>match</key>
+ 			<string>\b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\.?[0-9]*)|(\.[0-9]+))((e|E)(\+|-)?[0-9]+)?)([LlFfUuDd]|UL|ul)?\b</string>
+ 			<key>name</key>
+ 			<string>constant.numeric.d</string>
+@@ -483,37 +483,37 @@
  		</dict>
  		<dict>
  			<key>match</key>
@@ -138,7 +149,7 @@
  		<dict>
  			<key>match</key>
 -			<string>\b(new|delete|typeof|typeid|cast|align|is)\b</string>
-+			<string>\b(new|delete|typeof|typeid|cast|align|is|assert|__simd|__traits|__ctfe|_arguments|_argptr|__vptr|__monitor|_ctor|_dtor|__argTypes|__overloadset)\b</string>
++			<string>\b(new|delete|typeof|typeid|cast|align|is|assert|this|super|__simd|__traits|__ctfe|_arguments|_argptr|__vptr|__monitor|_ctor|_dtor|__argTypes|__overloadset)\b</string>
  			<key>name</key>
  			<string>keyword.operator.d</string>
  		</dict>
@@ -156,7 +167,7 @@
  			<key>name</key>
  			<string>keyword.other.external.d</string>
  		</dict>
-@@ -682,7 +688,7 @@
+@@ -682,7 +682,7 @@
  		<key>storage-type-d</key>
  		<dict>
  			<key>match</key>
@@ -165,7 +176,7 @@
  			<key>name</key>
  			<string>storage.type.d</string>
  		</dict>
-@@ -782,6 +788,88 @@
+@@ -782,6 +782,88 @@
  				</dict>
  				<dict>
  					<key>begin</key>
@@ -254,7 +265,7 @@
  					<string>`</string>
  					<key>beginCaptures</key>
  					<dict>
-@@ -845,7 +933,7 @@
+@@ -845,7 +927,7 @@
  		<key>support-type-built-ins-classes-d</key>
  		<dict>
  			<key>match</key>
@@ -263,7 +274,7 @@
  			<key>name</key>
  			<string>support.type.built-ins.classes.d</string>
  		</dict>
-@@ -874,7 +962,7 @@
+@@ -874,7 +956,7 @@
  		<key>support-type-built-ins-exceptions-d</key>
  		<dict>
  			<key>match</key>
@@ -272,7 +283,7 @@
  			<key>name</key>
  			<string>support.type.built-ins.exceptions.d</string>
  		</dict>
-@@ -895,7 +983,7 @@
+@@ -895,7 +977,7 @@
  		<key>support-type-d</key>
  		<dict>
  			<key>match</key>
