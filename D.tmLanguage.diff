@@ -149,7 +149,7 @@
  		<dict>
  			<key>match</key>
 -			<string>\b(new|delete|typeof|typeid|cast|align|is)\b</string>
-+			<string>\b(new|delete|typeof|typeid|cast|align|is|assert|this|super|__simd|__traits|__ctfe|_arguments|_argptr|__vptr|__monitor|_ctor|_dtor|__argTypes|__overloadset)\b</string>
++			<string>\b(new|delete|typeof|typeid|cast|align|is|assert|this|super|__simd|__traits|__ctfe|_arguments|_argptr|__vptr|__monitor|_ctor|_dtor|__argTypes|__overloadset|__parameters)\b</string>
  			<key>name</key>
  			<string>keyword.operator.d</string>
  		</dict>
