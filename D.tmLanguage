@@ -348,7 +348,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(auto|static|override|final|const|immutable|shared|__gshared|__thread|__vector|abstract|volatile|synchronized|lazy|pure|nothrow)\b</string>
+			<string>\b(auto|static|override|final|const|immutable|shared|__gshared|__vector|abstract|volatile|synchronized|lazy|pure|nothrow)\b</string>
 			<key>name</key>
 			<string>storage.modifier.d</string>
 		</dict>
