@@ -1,5 +1,5 @@
 --- D.tmLanguage.orig	2012-11-16 15:47:12.024064945 +0100
-+++ D.tmLanguage	2013-01-04 22:24:31.292509927 +0100
++++ D.tmLanguage	2013-01-21 11:53:22.156327742 +0100
 @@ -42,7 +42,7 @@
  		<dict>
  			<key>begin</key>
@@ -9,6 +9,15 @@
  					(class|interface)\s+
  					(\w+)\s* # identifier
  					(?:\(\s*([^\)]+)\s*\)|)\s* # Template type
+@@ -121,7 +121,7 @@
+ 				</dict>
+ 			</dict>
+ 			<key>end</key>
+-			<string>(?={)</string>
++			<string>(?={|;)</string>
+ 			<key>name</key>
+ 			<string>meta.definition.class.d</string>
+ 			<key>patterns</key>
 @@ -154,7 +154,7 @@
  		<dict>
  			<key>begin</key>
@@ -18,6 +27,15 @@
  					(struct)\s+
  					(\w+)\s* # identifier
  					(?:\(\s*([^\)]+)\s*\)|)\s* # Template type
+@@ -183,7 +183,7 @@
+ 				</dict>
+ 			</dict>
+ 			<key>end</key>
+-			<string>(?={)</string>
++			<string>(?={|;)</string>
+ 			<key>name</key>
+ 			<string>meta.definition.struct.d</string>
+ 			<key>patterns</key>
 @@ -216,7 +216,7 @@
  		<dict>
  			<key>begin</key>
@@ -218,7 +236,7 @@
 +							<string>#regular_expressions</string>
 +						</dict>
 +					</array>
-+				</dict>	
++				</dict>
 +				<dict>
 +					<key>begin</key>
 +					<string>(q)({)</string>
@@ -259,7 +277,7 @@
 +							<string>#regular_expressions</string>
 +						</dict>
 +					</array>
-+				</dict>										
++				</dict>
 +				<dict>
 +					<key>begin</key>
  					<string>`</string>
