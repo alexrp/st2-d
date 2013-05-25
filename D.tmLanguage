@@ -704,6 +704,44 @@
 				</dict>
 			</array>
 		</dict>
+		<key>string_placeholder</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>(?x)%
+						(\d+\$)?                             # field (argument #)
+						[#0\- +]*                            # flags
+						((\d+)|\*)?                          # minimum field width
+						(\.((-?\d+)|\*)?)?                   # precision
+						[\w]                                 # format character
+					</string>
+					<key>name</key>
+					<string>constant.other.placeholder.d</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>%%</string>
+					<key>name</key>
+					<string>constant.other.placeholder.d</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?x)
+						%(\(.*?%\))
+					</string>
+					<key>name</key>
+					<string>constant.other.placeholder-array.d</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>%</string>
+					<key>name</key>
+					<string>invalid.illegal.placeholder.d</string>
+				</dict>
+			</array>
+		</dict>
 		<key>strings</key>
 		<dict>
 			<key>patterns</key>
@@ -736,6 +774,10 @@
 						<dict>
 							<key>include</key>
 							<string>#string_escaped_char</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#string_placeholder</string>
 						</dict>
 					</array>
 				</dict>
@@ -890,6 +932,13 @@
 					</dict>
 					<key>name</key>
 					<string>string.quoted.double.raw.backtick.d</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#string_placeholder</string>
+						</dict>
+					</array>
 				</dict>
 				<dict>
 					<key>begin</key>

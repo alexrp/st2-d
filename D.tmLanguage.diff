@@ -1,5 +1,5 @@
---- D.tmLanguage.orig	2012-11-16 15:47:12.024064945 +0100
-+++ D.tmLanguage	2013-01-21 11:53:22.156327742 +0100
+--- D.tmLanguage.orig	2013-05-25 11:41:31.477400178 -0400
++++ D.tmLanguage	2013-05-25 12:17:05.733899586 -0400
 @@ -42,7 +42,7 @@
  		<dict>
  			<key>begin</key>
@@ -194,7 +194,63 @@
  			<key>name</key>
  			<string>storage.type.d</string>
  		</dict>
-@@ -782,6 +782,88 @@
+@@ -704,6 +704,44 @@
+ 				</dict>
+ 			</array>
+ 		</dict>
++		<key>string_placeholder</key>
++		<dict>
++			<key>patterns</key>
++			<array>
++				<dict>
++					<key>match</key>
++					<string>(?x)%
++						(\d+\$)?                             # field (argument #)
++						[#0\- +]*                            # flags
++						((\d+)|\*)?                          # minimum field width
++						(\.((-?\d+)|\*)?)?                   # precision
++						[\w]                                 # format character
++					</string>
++					<key>name</key>
++					<string>constant.other.placeholder.d</string>
++				</dict>
++				<dict>
++					<key>match</key>
++					<string>%%</string>
++					<key>name</key>
++					<string>constant.other.placeholder.d</string>
++				</dict>
++				<dict>
++					<key>match</key>
++					<string>(?x)
++						%(\(.*?%\))
++					</string>
++					<key>name</key>
++					<string>constant.other.placeholder-array.d</string>
++				</dict>
++				<dict>
++					<key>match</key>
++					<string>%</string>
++					<key>name</key>
++					<string>invalid.illegal.placeholder.d</string>
++				</dict>
++			</array>
++		</dict>
+ 		<key>strings</key>
+ 		<dict>
+ 			<key>patterns</key>
+@@ -737,6 +775,10 @@
+ 							<key>include</key>
+ 							<string>#string_escaped_char</string>
+ 						</dict>
++						<dict>
++							<key>include</key>
++							<string>#string_placeholder</string>
++						</dict>
+ 					</array>
+ 				</dict>
+ 				<dict>
+@@ -782,6 +824,88 @@
  				</dict>
  				<dict>
  					<key>begin</key>
@@ -283,7 +339,21 @@
  					<string>`</string>
  					<key>beginCaptures</key>
  					<dict>
-@@ -845,7 +927,7 @@
+@@ -808,6 +932,13 @@
+ 					</dict>
+ 					<key>name</key>
+ 					<string>string.quoted.double.raw.backtick.d</string>
++					<key>patterns</key>
++					<array>
++						<dict>
++							<key>include</key>
++							<string>#string_placeholder</string>
++						</dict>
++					</array>
+ 				</dict>
+ 				<dict>
+ 					<key>begin</key>
+@@ -845,7 +976,7 @@
  		<key>support-type-built-ins-classes-d</key>
  		<dict>
  			<key>match</key>
@@ -292,7 +362,7 @@
  			<key>name</key>
  			<string>support.type.built-ins.classes.d</string>
  		</dict>
-@@ -874,7 +956,7 @@
+@@ -874,7 +1005,7 @@
  		<key>support-type-built-ins-exceptions-d</key>
  		<dict>
  			<key>match</key>
@@ -301,7 +371,7 @@
  			<key>name</key>
  			<string>support.type.built-ins.exceptions.d</string>
  		</dict>
-@@ -895,7 +977,7 @@
+@@ -895,7 +1026,7 @@
  		<key>support-type-d</key>
  		<dict>
  			<key>match</key>
