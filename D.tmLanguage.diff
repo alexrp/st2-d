@@ -1,5 +1,5 @@
 --- D.tmLanguage.orig	2013-05-25 11:41:31.477400178 -0400
-+++ D.tmLanguage	2013-05-26 13:29:07.304938276 -0400
++++ D.tmLanguage	2013-05-26 13:32:36.582004062 -0400
 @@ -42,7 +42,7 @@
  		<dict>
  			<key>begin</key>
@@ -223,7 +223,7 @@
 +				<dict>
 +					<key>match</key>
 +					<string>(?x)
-+						%([\(\)])
++						%(-?\(|\))
 +					</string>
 +					<key>name</key>
 +					<string>constant.other.placeholder-array.d</string>
