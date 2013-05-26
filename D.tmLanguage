@@ -729,7 +729,7 @@
 				<dict>
 					<key>match</key>
 					<string>(?x)
-						%(\(.*?%\))
+						%([\(\)])
 					</string>
 					<key>name</key>
 					<string>constant.other.placeholder-array.d</string>
