@@ -292,7 +292,7 @@
 			<key>begin</key>
 			<string>(?x)^\s*
 					((?:\b(?:public|private|protected|package|static|final|lazy|synchronized|abstract|export)\b\s*)*) # modifier
-					(\b(?:ushort|int|uint|long|ulong|float|void|byte|ubyte|double|bit|char|wchar|ucent|cent|short|bool|dchar|real|ireal|ifloat|idouble|creal|cfloat|cdouble|string|wstring|dstring|size_t|ptrdiff_t|sizediff_t|hash_t|equals_t|[\w_]+[\w0-9_]*|(?:\w+\.)*[A-Z]\w+)\b(?:&lt;(?:(?:(?:\w+\.)*[A-Z]\w+)(?:\s*,\s*)?)+&gt;|(?:\[\s*\])*)?)\s* # type
+					(\b(?:ushort|int|uint|long|ulong|float|void|byte|ubyte|double|char|wchar|ucent|cent|short|bool|dchar|real|ireal|ifloat|idouble|creal|cfloat|cdouble|string|wstring|dstring|size_t|ptrdiff_t|sizediff_t|hash_t|equals_t|[\w_]+[\w0-9_]*|(?:\w+\.)*[A-Z]\w+)\b(?:&lt;(?:(?:(?:\w+\.)*[A-Z]\w+)(?:\s*,\s*)?)+&gt;|(?:\[\s*\])*)?)\s* # type
 					(\w+)\s* # identifier
 					(?!.*;)  # abort if line has a ;
 					(?=\()</string>
@@ -366,7 +366,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(ushort|int|uint|long|ulong|float|void|byte|ubyte|double|bit|char|wchar|ucent|cent|short|bool|dchar|real|ireal|ifloat|idouble|creal|cfloat|cdouble|string|wstring|dstring|size_t|ptrdiff_t|sizediff_t|hash_t|equals_t)\b</string>
+			<string>\b(ushort|int|uint|long|ulong|float|void|byte|ubyte|double|char|wchar|ucent|cent|short|bool|dchar|real|ireal|ifloat|idouble|creal|cfloat|cdouble|string|wstring|dstring|size_t|ptrdiff_t|sizediff_t|hash_t|equals_t)\b</string>
 			<key>name</key>
 			<string>storage.type.d</string>
 		</dict>
@@ -384,7 +384,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(if|else|switch|iftype)\b</string>
+			<string>\b(if|else|switch)\b</string>
 			<key>name</key>
 			<string>keyword.control.conditional.d</string>
 		</dict>
@@ -682,7 +682,7 @@
 		<key>storage-type-d</key>
 		<dict>
 			<key>match</key>
-			<string>\b(ushort|int|uint|long|ulong|float|void|byte|ubyte|double|bit|char|wchar|ucent|cent|short|bool|dchar|real|ireal|ifloat|idouble|creal|cfloat|cdouble|string|wstring|dstring|size_t|ptrdiff_t|sizediff_t|hash_t|equals_t|([a-z]\w+\.)*[A-Z]\w+)\b</string>
+			<string>\b(ushort|int|uint|long|ulong|float|void|byte|ubyte|double|char|wchar|ucent|cent|short|bool|dchar|real|ireal|ifloat|idouble|creal|cfloat|cdouble|string|wstring|dstring|size_t|ptrdiff_t|sizediff_t|hash_t|equals_t|([a-z]\w+\.)*[A-Z]\w+)\b</string>
 			<key>name</key>
 			<string>storage.type.d</string>
 		</dict>
