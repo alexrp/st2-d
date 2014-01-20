@@ -292,7 +292,7 @@
 			<key>begin</key>
 			<string>(?x)^\s*
 					((?:\b(?:public|private|protected|package|static|final|lazy|synchronized|abstract|export|immutable|override|const|pure|nothrow|ref|shared|auto)\b\s*|@\b(?:property|disable|safe|trusted|system)\b\s*)*) # modifier
-					(\b(?:ushort|int|uint|long|ulong|float|void|byte|ubyte|double|char|wchar|ucent|cent|short|bool|dchar|real|ireal|ifloat|idouble|creal|cfloat|cdouble|string|wstring|dstring|size_t|ptrdiff_t|sizediff_t|hash_t|equals_t|[\w_]+[\w0-9_]*|(?:\w+\.)*[A-Z]\w+)\b(?:&lt;(?:(?:(?:\w+\.)*[A-Z]\w+)(?:\s*,\s*)?)+&gt;|(?:\[\s*\])*)?)\s* # type
+					(\b(?:ushort|int|uint|long|ulong|float|void|byte|ubyte|double|char|wchar|ucent|cent|short|bool|dchar|real|ireal|ifloat|idouble|creal|cfloat|cdouble|string|wstring|dstring|size_t|ptrdiff_t|sizediff_t|hash_t|equals_t|[\w_]+[\w0-9_]*|(?:\w+\.)*[A-Z]\w+)\b(?:&lt;(?:(?:(?:\w+\.)*[A-Z]\w+)(?:\s*,\s*)?)+&gt;|(?:\s*(?:\[\s*\]|\*))*)?)\s* # type
 					(?!if|while|switch|mixin|delegate|function|assert) # abort if a keyword
 					(\w+)\s* # identifier
 					(?!.*;)  # abort if line has a ;
