@@ -43,7 +43,7 @@
 			<key>begin</key>
 			<string>(?x)^\s*
 					((?:\b(public|private|protected|package|static|final|synchronized|abstract|export)\b\s*)*) # modifier
-					(class|interface)\s+
+					(class|interface|enum|template|union)\s+
 					(\w+)\s* # identifier
 					(?:\(\s*([^\)]+)\s*\)|)\s* # Template type
 					(?:
