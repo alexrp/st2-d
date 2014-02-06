@@ -472,7 +472,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(==|!=|&lt;=|&gt;=|&lt;&gt;|&lt;|&gt;)</string>
+			<string>(==|!=|&lt;|&lt;=|!&lt;|!&lt;=|&gt;|&gt;=|!&gt;|!&gt;=|&lt;&gt;|&lt;&gt;=|!&lt;&gt;|!&lt;&gt;=)</string>
 			<key>name</key>
 			<string>keyword.operator.comparison.d</string>
 		</dict>
