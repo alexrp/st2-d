@@ -1,32 +1,36 @@
 --- D.tmLanguage.orig	2013-05-25 11:41:31.477400178 -0400
-+++ D.tmLanguage	2013-05-26 13:32:36.582004062 -0400
-@@ -42,7 +42,7 @@
++++ D.tmLanguage	2014-06-10 13:24:04.000000000 -0400
+@@ -42,8 +42,8 @@
  		<dict>
  			<key>begin</key>
  			<string>(?x)^\s*
 -					((?:\b(public|private|protected|static|final|native|synchronized|abstract|export)\b\s*)*) # modifier
+-					(class|interface)\s+
 +					((?:\b(public|private|protected|package|static|final|synchronized|abstract|export)\b\s*)*) # modifier
- 					(class|interface)\s+
++					(class|interface|enum)\s+
  					(\w+)\s* # identifier
  					(?:\(\s*([^\)]+)\s*\)|)\s* # Template type
+ 					(?:
 @@ -121,7 +121,7 @@
  				</dict>
  			</dict>
  			<key>end</key>
 -			<string>(?={)</string>
-+			<string>(?={|;)</string>
++			<string>(?={|;|=)</string>
  			<key>name</key>
  			<string>meta.definition.class.d</string>
  			<key>patterns</key>
-@@ -154,7 +154,7 @@
+@@ -154,8 +154,8 @@
  		<dict>
  			<key>begin</key>
  			<string>(?x)^\s*
 -					((?:\b(public|private|protected|static|final|native|synchronized|abstract|export)\b\s*)*) # modifier
+-					(struct)\s+
 +					((?:\b(public|private|protected|package|static|final|synchronized|abstract|export)\b\s*)*) # modifier
- 					(struct)\s+
++					(struct|union|template)\s+
  					(\w+)\s* # identifier
  					(?:\(\s*([^\)]+)\s*\)|)\s* # Template type
+ 					</string>
 @@ -183,7 +183,7 @@
  				</dict>
  			</dict>
@@ -66,18 +70,19 @@
  			<key>captures</key>
  			<dict>
  				<key>1</key>
-@@ -291,8 +291,8 @@
+@@ -291,8 +291,9 @@
  		<dict>
  			<key>begin</key>
  			<string>(?x)^\s*
 -					((?:\b(?:public|private|protected|static|final|native|lazy|synchronized|abstract|threadsafe|transient|export)\b\s*)*) # modifier
 -					(\b(?:void|boolean|byte|char|short|int|float|long|double|[\w_]+[\w0-9_]*|(?:\w+\.)*[A-Z]\w+)\b(?:&lt;(?:(?:(?:\w+\.)*[A-Z]\w+)(?:\s*,\s*)?)+&gt;|(?:\[\s*\])*)?)\s* # type
-+					((?:\b(?:public|private|protected|package|static|final|lazy|synchronized|abstract|export)\b\s*)*) # modifier
-+					(\b(?:ushort|int|uint|long|ulong|float|void|byte|ubyte|double|bit|char|wchar|ucent|cent|short|bool|dchar|real|ireal|ifloat|idouble|creal|cfloat|cdouble|string|wstring|dstring|size_t|ptrdiff_t|sizediff_t|hash_t|equals_t|[\w_]+[\w0-9_]*|(?:\w+\.)*[A-Z]\w+)\b(?:&lt;(?:(?:(?:\w+\.)*[A-Z]\w+)(?:\s*,\s*)?)+&gt;|(?:\[\s*\])*)?)\s* # type
++					((?:\b(?:public|private|protected|package|static|final|lazy|synchronized|abstract|export|immutable|override|const|pure|nothrow|ref|shared|auto)\b\s*|@\b(?:property|disable|safe|trusted|system)\b\s*)*) # modifier
++					(\b(?:ushort|int|uint|long|ulong|float|void|byte|ubyte|double|char|wchar|ucent|cent|short|bool|dchar|real|ireal|ifloat|idouble|creal|cfloat|cdouble|string|wstring|dstring|size_t|ptrdiff_t|sizediff_t|hash_t|equals_t|[\w_]+[\w0-9_]*|(?:\w+\.)*[A-Z]\w+)\b(?:&lt;(?:(?:(?:\w+\.)*[A-Z]\w+)(?:\s*,\s*)?)+&gt;|(?:\s*(?:\[\s*\]|\*))*)?)\s* # type
++					(?!if|while|switch|mixin|delegate|function|assert) # abort if a keyword
  					(\w+)\s* # identifier
  					(?!.*;)  # abort if line has a ;
  					(?=\()</string>
-@@ -342,25 +342,31 @@
+@@ -342,25 +343,31 @@
  		</dict>
  		<dict>
  			<key>match</key>
@@ -108,11 +113,20 @@
  		<dict>
  			<key>match</key>
 -			<string>\b(ushort|int|uint|long|ulong|float|void|byte|ubyte|double|bit|char|wchar|ucent|cent|short|bool|dchar|real|ireal|ifloat|idouble|creal|cfloat|cdouble|lazy)\b</string>
-+			<string>\b(ushort|int|uint|long|ulong|float|void|byte|ubyte|double|bit|char|wchar|ucent|cent|short|bool|dchar|real|ireal|ifloat|idouble|creal|cfloat|cdouble|string|wstring|dstring|size_t|ptrdiff_t|sizediff_t|hash_t|equals_t)\b</string>
++			<string>\b(ushort|int|uint|long|ulong|float|void|byte|ubyte|double|char|wchar|ucent|cent|short|bool|dchar|real|ireal|ifloat|idouble|creal|cfloat|cdouble|string|wstring|dstring|size_t|ptrdiff_t|sizediff_t|hash_t|equals_t)\b</string>
  			<key>name</key>
  			<string>storage.type.d</string>
  		</dict>
-@@ -396,7 +402,7 @@
+@@ -378,7 +385,7 @@
+ 		</dict>
+ 		<dict>
+ 			<key>match</key>
+-			<string>\b(if|else|switch|iftype)\b</string>
++			<string>\b(if|else|switch)\b</string>
+ 			<key>name</key>
+ 			<string>keyword.control.conditional.d</string>
+ 		</dict>
+@@ -396,7 +403,7 @@
  		</dict>
  		<dict>
  			<key>match</key>
@@ -121,7 +135,7 @@
  			<key>name</key>
  			<string>keyword.control.statement.d</string>
  		</dict>
-@@ -445,18 +451,12 @@
+@@ -445,19 +452,13 @@
  		</dict>
  		<dict>
  			<key>match</key>
@@ -138,10 +152,21 @@
 -		</dict>
 -		<dict>
 -			<key>match</key>
- 			<string>\b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\.?[0-9]*)|(\.[0-9]+))((e|E)(\+|-)?[0-9]+)?)([LlFfUuDd]|UL|ul)?\b</string>
+-			<string>\b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\.?[0-9]*)|(\.[0-9]+))((e|E)(\+|-)?[0-9]+)?)([LlFfUuDd]|UL|ul)?\b</string>
++			<string>\b((0(x|X)[0-9a-fA-F_]*)|(([0-9]+\.?[0-9_]*)|(\.[0-9_]+))((e|E|p)(\+|-)?[0-9_]+)?)([LlFfUuDd]|UL|ul)?\b</string>
  			<key>name</key>
  			<string>constant.numeric.d</string>
-@@ -483,37 +483,37 @@
+ 		</dict>
+@@ -471,7 +472,7 @@
+ 		</dict>
+ 		<dict>
+ 			<key>match</key>
+-			<string>(==|!=|&lt;=|&gt;=|&lt;&gt;|&lt;|&gt;)</string>
++			<string>(==|!=|&lt;|&lt;=|!&lt;|!&lt;=|&gt;|&gt;=|!&gt;|!&gt;=|&lt;&gt;|&lt;&gt;=|!&lt;&gt;|!&lt;&gt;=)</string>
+ 			<key>name</key>
+ 			<string>keyword.operator.comparison.d</string>
+ 		</dict>
+@@ -483,37 +484,37 @@
  		</dict>
  		<dict>
  			<key>match</key>
@@ -185,16 +210,16 @@
  			<key>name</key>
  			<string>keyword.other.external.d</string>
  		</dict>
-@@ -682,7 +682,7 @@
+@@ -682,7 +683,7 @@
  		<key>storage-type-d</key>
  		<dict>
  			<key>match</key>
 -			<string>\b(void|byte|short|char|int|long|float|double|boolean|([a-z]\w+\.)*[A-Z]\w+)\b</string>
-+			<string>\b(ushort|int|uint|long|ulong|float|void|byte|ubyte|double|bit|char|wchar|ucent|cent|short|bool|dchar|real|ireal|ifloat|idouble|creal|cfloat|cdouble|string|wstring|dstring|size_t|ptrdiff_t|sizediff_t|hash_t|equals_t|([a-z]\w+\.)*[A-Z]\w+)\b</string>
++			<string>\b(ushort|int|uint|long|ulong|float|void|byte|ubyte|double|char|wchar|ucent|cent|short|bool|dchar|real|ireal|ifloat|idouble|creal|cfloat|cdouble|string|wstring|dstring|size_t|ptrdiff_t|sizediff_t|hash_t|equals_t|([a-z]\w+\.)*[A-Z]\w+)\b</string>
  			<key>name</key>
  			<string>storage.type.d</string>
  		</dict>
-@@ -704,6 +704,44 @@
+@@ -704,6 +705,44 @@
  				</dict>
  			</array>
  		</dict>
@@ -239,7 +264,7 @@
  		<key>strings</key>
  		<dict>
  			<key>patterns</key>
-@@ -737,6 +775,10 @@
+@@ -737,6 +776,10 @@
  							<key>include</key>
  							<string>#string_escaped_char</string>
  						</dict>
@@ -250,7 +275,7 @@
  					</array>
  				</dict>
  				<dict>
-@@ -782,6 +824,88 @@
+@@ -782,6 +825,88 @@
  				</dict>
  				<dict>
  					<key>begin</key>
@@ -339,7 +364,7 @@
  					<string>`</string>
  					<key>beginCaptures</key>
  					<dict>
-@@ -808,6 +932,13 @@
+@@ -808,6 +933,13 @@
  					</dict>
  					<key>name</key>
  					<string>string.quoted.double.raw.backtick.d</string>
@@ -353,7 +378,7 @@
  				</dict>
  				<dict>
  					<key>begin</key>
-@@ -845,7 +976,7 @@
+@@ -845,7 +977,7 @@
  		<key>support-type-built-ins-classes-d</key>
  		<dict>
  			<key>match</key>
@@ -362,7 +387,7 @@
  			<key>name</key>
  			<string>support.type.built-ins.classes.d</string>
  		</dict>
-@@ -874,7 +1005,7 @@
+@@ -874,7 +1006,7 @@
  		<key>support-type-built-ins-exceptions-d</key>
  		<dict>
  			<key>match</key>
@@ -371,12 +396,12 @@
  			<key>name</key>
  			<string>support.type.built-ins.exceptions.d</string>
  		</dict>
-@@ -895,7 +1026,7 @@
+@@ -895,7 +1027,7 @@
  		<key>support-type-d</key>
  		<dict>
  			<key>match</key>
 -			<string>\b((?:tango|std)\.[\w\.]+)\b</string>
-+			<string>[^\w\."'`](tango|core|std)\.[\w\.]+</string>
++			<string>[^\w\."'`](tango|core|std|etc)\.[\w\.]+</string>
  			<key>name</key>
  			<string>support.type.d</string>
  		</dict>
