@@ -1,6 +1,6 @@
 {
 	"shell_cmd": "dub build -q --nodeps --compiler=dmd --vquiet",
-	"file_regex": "^([^\\(^\n]*)\\(([0-9]+),([0-9]+)\\): ((Error|Warning):)? (.*)$",
+	"file_regex": "^([^\\(^\n]*?)(?:-mixin-[0-9]+)?\\(([0-9]+),([0-9]+)\\): ((Error|Warning):)? (.*)$",
 	"working_dir": "${project_path:${folder:${file_path}}}",
 	"variants":
 	[
