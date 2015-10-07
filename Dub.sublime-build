@@ -1,12 +1,12 @@
 {
-	"shell_cmd": "dub build -q --nodeps --compiler=dmd",
-	"file_regex": "^([^\\(^\n]*)\\(([0-9]+)\\): ((Error|Warning):)? (.*)$",
+	"shell_cmd": "dub build -q --nodeps --compiler=dmd --vquiet",
+	"file_regex": "^([^\\(^\n]*)\\(([0-9]+),([0-9]+)\\): ((Error|Warning):)? (.*)$",
 	"working_dir": "${project_path:${folder:${file_path}}}",
 	"variants":
 	[
 		{
 			"name": "UnitTest",
-			"shell_cmd": "dub build -q --nodeps --build=unittest --compiler=dmd"
+			"shell_cmd": "dub build -q --nodeps --build=unittest --compiler=dmd --vquiet"
 
 		},
 		{
