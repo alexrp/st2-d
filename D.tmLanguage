@@ -18,7 +18,7 @@
 	<key>keyEquivalent</key>
 	<string>^~D</string>
 	<key>name</key>
-	<string>D</string>
+	<string>DLang</string>
 	<key>patterns</key>
 	<array>
 		<dict>
