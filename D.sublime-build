@@ -1,0 +1,11 @@
+{	
+	"file_regex": "^(?:.*?@)?(.*?)(?:-mixin-[0-9]+)?\\(([0-9]+)\\)",
+	"selector": "source.d",
+	
+	"linux":{
+		"shell_cmd": "chmod +x ${file} && dmd -run ${file}"
+	},
+	"windows":{
+		"cmd": "dmd -run ${file}"
+	}
+}
